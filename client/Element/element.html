@@ -1,0 +1,15 @@
+<div ng-if="!el.editing">
+  <button class="update" ng-click="el.editElement()">Update</button>
+  <span>{{element.atNum}}</span>
+  <span>{{element.elName}}</span>
+  <button class="delete" ng-click="el.removeElement(element)">Delete</button>
+</div>
+
+<div ng-if="el.editing">
+  <button class="cancel" ng-click="el.editElement()">Cancel</button>
+  <form ng-submit="el.updateElement(element);">
+    <input type="number" ng-model="element.atNum" placeholder="Atomic Number" required />
+    <input type="text" ng-model="element.elName" placeholder="Element Name" required />
+    <input class="save" type="submit" value="Save" />
+  </form>
+</div>

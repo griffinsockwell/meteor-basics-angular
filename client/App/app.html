@@ -1,0 +1,22 @@
+<header>
+  <form ng-submit="app.addElement(newEl); newEl='';">
+    <input type="number" ng-model="newEl.atNum" placeholder="Atomic Number" required />
+    <input type="text" ng-model="newEl.elName" placeholder="Element Name" required />
+    <input class="submit" type="submit" value="Submit" />
+  </form>
+</header>
+
+<ul>
+
+  <div ng-if="app.hasElements">
+    <li ng-repeat="element in app.elements">
+      <div ng-include="'client/Element/element.html'" ng-controller="ElementCtrl as el">
+      </div>
+    </li>
+  </div>
+
+  <div ng-if="!app.hasElements" class="no-elements">
+    Add a new element above!
+  </div>
+
+</ul>
